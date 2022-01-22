@@ -1,25 +1,82 @@
 let i_width = 7; //폰트크기 75vh단위 기준 i의 너비 = 약7vh
 
-class element_m{
-    constructor(id, x, y){
-        this.id = id;
-        this.x = x;
-        this.y = y;
-        this.elem = document.getElementById(id)
+class rows{
+    constructor(){
+        this.rownum = 1;
+        this.update_row()
     }
-    move(x, y){
-        this.x = x;
-        this.y = y;
-        this.elem.style.transform = "translate(".concat(String(x)).concat("vh, ").concat(String(y)).concat("vh)");
+    update_row(){
+        var expected_rownum;
+        if(window.innerWidth>window.innerHeight){
+            expected_rownum = 4
+        }else{
+            expected_rownum = parseInt(5*window.innerHeight/window.innerWidth-1)
+        }
+
+        for(var i = this.rownum+1; i<=expected_rownum; i++){
+            this.add_row(i);
+        }
+        for(var i = this.rownum; i>=expected_rownum+1; i--){
+            this.remove_row(i)
+        }
+    }
+
+    add_row(order){
+        var newRow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        var newUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    
+        newRow.setAttribute("id", String(order));
+        newRow.setAttribute("xmlns:xlink","http://www.w3.org/2000/xlink");
+    
+        newUse.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#graphicField")
+        newUse.setAttribute("x" ,"-" + String(order-1) + "00vw")
+        newUse.setAttribute("y" , "0")
+        newUse.setAttribute("width", "100%")
+        newUse.setAttribute("height" , "25vmin")
+        
+        newRow.style.position = "absolute"
+        newRow.style.top = String((20*(order-1))+10)+"vmin"
+        newRow.style.left = "0"
+        newRow.style.width =  String(order)+"00%"
+        newRow.style.height =  "26vmin"
+    
+        newRow.appendChild(newUse);
+        document.body.appendChild(newRow);
+        this.rownum +=1;
+    }
+
+    remove_row(order){
+        var elem = document.getElementById(String(order));
+        if(elem!==null){
+            elem.parentElement.removeChild(elem);
+            this.rownum -=1;
+        }
     }
 }
 
-class row{
-    constructor(m, min, y){
-        this.m = m;
-        this.cur = min; // x position of recent i
-        this.min = min; // minimum x position of i
-        this.y = y;
+var rowss = new rows();
+
+class root_graphic{
+    constructor(){
+        this.mx = 34
+        this.cur = 34 // x position of recent i
+        this.min = 34 // minimum x position of i
+        this.y = 25;
+        this.update_max_mx()
+    }
+
+    update_max_mx(){
+        if(window.innerWidth>window.innerHeight){
+            this.max_mx = rowss.rownum*100* window.innerWidth/window.innerHeight -23
+        }else{
+            this.max_mx = rowss.rownum*100 -23
+        }
+    }
+
+    move_m(val){
+        var x = Math.min(Math.max(this.mx+val, 34), this.max_mx)
+        this.mx = x;
+        document.getElementById("m").style.transform = "translate("+ String(x) + "vmin, "+ String(this.y)+ "vmin)";
     }
 
     //add i
@@ -38,7 +95,7 @@ class row{
             graphic.appendChild(newI);
     
             newI.setAttribute("id", String(id));
-            newI.style.transform =  "translate(".concat(String(x)).concat("vh, ").concat(String(this.y)).concat("vh)");
+            newI.style.transform =  "translate(" + String(x) + "vmin, " + String(this.y) + "vmin)";
     
             return newI
         }
@@ -55,14 +112,14 @@ class row{
     //add, remove i depends on m position
     add_remove_i(){
         var temp = this.cur
-        if(this.cur < this.m.x){
-            for(var i = this.cur+i_width; i<=this.m.x; i+=i_width){  
+        if(this.cur < this.mx){
+            for(var i = this.cur+i_width; i<=this.mx; i+=i_width){  
                 this.addElement(String(i).concat(String(this.y)), i - 7.5);
                 temp = i    
             } 
                                                            
-        } else if(this.cur > this.m.x){
-            for(var i = this.cur; i>= this.m.x; i-=i_width){
+        } else if(this.cur > this.mx){
+            for(var i = this.cur; i>= this.mx; i-=i_width){
                 this.removeElement(String(i).concat(String(this.y)));
                 temp = i  
             }
@@ -71,52 +128,42 @@ class row{
     }
 }
 
-var anchor = 34;                       //m 위치기준
-var m1 = new element_m("m1", 34, 25);  //첫 번째 줄 m 인스턴스
-var m2 = new element_m("m2", -21, 45); //두 번째 줄 m 인스턴스
-var m3 = new element_m("m3", -21, 65); //세 번째 줄 m 인스턴스
-
-var row1 = new row(m1, 35, 25)         //첫 번째 줄
-var row2 = new row(m2, 0, 45)          //두 번째 줄
-var row3 = new row(m3, 0, 65)          //세 번째 줄 
-
+var root = new root_graphic()         //첫 번째 줄
 
 // get mouse wheel value, change 'm' position, add/remove 'i'
 function display(val){
-    var one_vh = window.innerHeight/100;        //현재 윈도우 크기기준으로 1vh값 정의
-    var width_vh = window.innerWidth/one_vh;    //현재 윈도우 너비를 vh값으로 나타낸 변수
-
-    anchor =Math.min(Math.max(anchor + val, 34), 3*width_vh-23)             //  max = 3*width_vh-23 , min = 34, pure value = anchor + val
-
     //move m
-    row1.m.move(Math.min(anchor, width_vh), row1.m.y);                              //  max = width_vh               pure value = anchor
-    row2.m.move(Math.min(Math.max(anchor - width_vh, -21), width_vh), row2.m.y);    //  max = width_vh,  min = -21,  pure value = anchor - width_vh
-    row3.m.move(Math.min(Math.max(anchor - width_vh*2, -21), width_vh), row3.m.y);  //  max = width_vh,  min = -21,  pure value = anchor - width_vh*2
-
-    row1.add_remove_i();
-    row2.add_remove_i();
-    row3.add_remove_i();
+    root.move_m(val);                          //  max = width_vh               pure value = anchor
+    root.add_remove_i();
 }
 
-//mouse wheel event
+
+
+//mouse wheel input
 let sensitivity = 0.05; //마우스휠 감도 조정
-window.addEventListener("wheel", function(event){display(event.deltaY * sensitivity)});
+window.addEventListener("wheel", function(event){
+    display(event.deltaY * sensitivity);
+});
 
 //window resize event
-window.addEventListener("resize", function(){display(0);});
+window.addEventListener("resize", function(){
+    rowss.update_row()
+    root.update_max_mx()
+    display(0);
+});
 
 
 //button hover&click event
 let button = document.getElementById("button");
 
 button.onmouseenter = function() { //버튼 밖에서 안으로 마우스가 올라왔을 떄
-    button.innerHTML = "(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k)";
+    button.innerHTML = "(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)";
 };
 button.onpointerleave = function() { //버튼 안에서 밖으로 마우스가 떠났을 때
     button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back)';
 }
 button.onclick = function() { //버튼을 클릭했을 때
-    button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:red;">ac</span>k)';
+    button.innerHTML = "(&nbsp;&nbsp;o)";
     location.href='index.html';
 }
 

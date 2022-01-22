@@ -1,33 +1,29 @@
 body{
     margin: 0;
     background-color: white;
+    overflow: hidden;
 }
 
 /* skiiiiim */
 .graphic{
     fill:#101101;
+    position: absolute;
     width: 100%;
-    height: 75vh;
+    height: 26vmin;
     font-family:'Manrope', sans-serif;
     font-weight: 700;
-    font-size: 25vh;
+    font-size: 25vmin;
 
-    margin-top: -20px;
-    word-break: break-all;
+    top: 10vmin;
+    left:0;
 }
 
+#ski {
+    transform: translate(0vmin, 25vmin)
+}
 
-#ski{
-    transform: translate(0vh, 25vh);
-}
-#m1{
-    transform: translate(34vh, 25vh);
-}
-#m2{
-    transform: translate(-21vh, 45vh);
-}
-#m3{
-    transform: translate(-21vh, 65vh);
+#m{
+    transform: translate(34vmin, 25vmin);
 }
 
 /* 레이아웃 */
