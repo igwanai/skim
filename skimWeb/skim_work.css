@@ -1,0 +1,125 @@
+/* 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+/* 전체 레이아웃 */
+#wrap {
+    margin: 0 auto;
+}
+#nav {
+    float: left;
+    width: 200px;
+    height: 100px;
+}
+.back {
+    margin-top: 35px;
+    margin-left: 30px;
+}
+/* 세부 레이아웃 */
+button {
+    /* 생략 */
+    margin: 0;
+    padding: 0;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: auto;
+    border: none;
+    background: var(--button-bg-color);
+  }
+
+.projects{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    transition: all 1s;
+    box-shadow: 0vh 0vh 0.5vh 0.5vh rgba(50, 50, 50, .1);
+    top:100vh
+}
+
+.project_label{
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    color:white;
+    font-size: 5vh;
+    margin-top:1vh;
+    margin-left: 30px ;
+}
+
+#project1{
+    background-color: #444;
+    -webkit-animation: slidein_project1 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation: slidein_project1 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation-fill-mode: forwards;
+}
+
+#project2{
+    background-color: #b9ffa7;
+    -webkit-animation: slidein_project2 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation: slidein_project2 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+#project3{
+    background-color: #2f8fff;
+    -webkit-animation: slidein_project3 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation: slidein_project3 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+#project4{
+    background-color: #E5E5E5;
+    -webkit-animation: slidein_project4 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation: slidein_project4 1s cubic-bezier(0, 0, 0.08, 1.0);
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes slidein_project1 {
+    from {top: 100vh;}
+    to {top: 10vh;}
+}
+@keyframes slidein_project1 {
+    from {top: 100vh;}
+    to {top: 10vh;}
+}
+
+
+@-webkit-keyframes slidein_project2 {
+    from {top: 100vh;}
+    to {top: 20vh;}
+}
+@keyframes slidein_project2 {
+    from {top: 100vh;}
+    to {top: 20vh;}
+}
+
+
+@-webkit-keyframes slidein_project3 {
+    from {top: 100vh;}
+    to {top: 30vh;}
+}
+@keyframes slidein_project3 {
+    from {top: 100vh;}
+    to {top: 30vh;}
+}
+
+
+@-webkit-keyframes slidein_project4 {
+    from {top: 100vh;}
+    to {top: 40vh;}
+}
+@keyframes slidein_project4 {
+    from {top: 100vh;}
+    to {top: 40vh;}
+}
