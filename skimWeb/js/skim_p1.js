@@ -164,13 +164,13 @@ button.onpointerleave = function() { //버튼 안에서 밖으로 마우스가 �
 }
 button.onclick = function() { //버튼을 클릭했을 때
     button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:red;">ac</span>k)';
-    location.href='index.html';
+    location.href='/';
 }
 
-// let sql_button = document.querySelector(".get_sql")
+let sql_button = document.querySelector(".get_sql")
 
-// sql_button.onclick = function() { //버튼을 클릭했을 때
-//     fetch("/sensor")
-//     .then((res) => res.json())
-//     .then((res) => display(res.num*0.02));
-// }
+sql_button.onclick = function() { //버튼을 클릭했을 때
+    fetch("/sensor")
+    .then((res) => res.json())
+    .then((res) => display(res.num*0.02));
+}

@@ -23,11 +23,11 @@ app.get("/work", (req, res) => {
     res.sendFile(__dirname + "/skimWeb" + "/skim_work.html");
 });
 
-// //p1) get sensor value
-// app.get("/sensor", async (req, res) => {
-//     const response = await db.sensor.getValue();
-//     res.json(response);
-// });
+//p1) get sensor value
+app.get("/sensor", async (req, res) => {
+    const response = await db.sensor.getValue();
+    res.json(response);
+});
 
 
 app.listen(PORT, (err) => {

@@ -23,9 +23,9 @@ body{
 }
 
 #m{
-    /* transition: all 1.5s; */
+    transition: all 1.5s;
     transform: translate(34vmin, 25vmin);
-    /* animation-timing-function: ease-in-out; */
+    animation-timing-function: ease-in-out;
 }
 
 .get_sql{

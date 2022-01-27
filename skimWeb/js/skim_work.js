@@ -1,5 +1,5 @@
 var l = ["project1", "project2", "project3", "project4"]
-var herf_l = ['skim_p1.html', 'skim_p2.html', 'skim_p3.html', 'skim_p4.html']
+var herf_l = ['skim_project?num=1', 'skim_project?num=2', 'skim_project?num=3', 'skim_project?num=4']
 var len = l.length;
 
 function add_animation(order){
@@ -37,7 +37,7 @@ button.onpointerleave = function() { //버튼 안에서 밖으로 마우스가 �
 }
 button.onclick = function() { //버튼을 클릭했을 때
     button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:red;">ac</span>k)';
-    location.href='index.html';
+    location.href='/';
 }
 
 /* // 풀어쓰기

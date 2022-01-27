@@ -1,10 +1,4 @@
 {
-  "name": "skim",
-  "version": "1.0.0",
-  "main": "app.js",
-  "repository": "https://github.com/swoooon/skim.git",
-  "author": "swoooon",
-  "license": "MIT",
   "dependencies": {
     "express": "^4.17.2",
     "mysql": "^2.18.1"
