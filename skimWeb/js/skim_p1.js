@@ -167,3 +167,10 @@ button.onclick = function() { //버튼을 클릭했을 때
     location.href='index.html';
 }
 
+// let sql_button = document.querySelector(".get_sql")
+
+// sql_button.onclick = function() { //버튼을 클릭했을 때
+//     fetch("/sensor")
+//     .then((res) => res.json())
+//     .then((res) => display(res.num*0.02));
+// }

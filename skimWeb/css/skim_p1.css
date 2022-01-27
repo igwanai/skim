@@ -23,7 +23,15 @@ body{
 }
 
 #m{
+    /* transition: all 1.5s; */
     transform: translate(34vmin, 25vmin);
+    /* animation-timing-function: ease-in-out; */
+}
+
+.get_sql{
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 200px;
 }
 
 /* 레이아웃 */
