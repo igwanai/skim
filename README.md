@@ -3,4 +3,4 @@
 ## Getting Started
 
 1. `yarn install`
-2. `node app`
+2. `yarn start`
