@@ -1,10 +1,8 @@
-PORT = 3000;
-
 //const db = require("./skimWeb/config/db")
 const express = require("express");
 const naddress = __dirname + "/skimWeb";
 const app = express();
-
+const PORT = process.env.PORT || 3000;
 app.use(express.static(naddress))
 
 app.get("/", (req, res) => {
