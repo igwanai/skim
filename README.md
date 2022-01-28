@@ -1,1 +1,6 @@
 # Hello! it's skim.
+
+## Getting Started
+
+1. `yarn install`
+2. `node app`
