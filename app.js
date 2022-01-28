@@ -1,26 +1,27 @@
 PORT = 3000;
 
-const db = require("./skimWeb/config/db")
+//const db = require("./skimWeb/config/db")
 const express = require("express");
+const naddress = __dirname + "/skimWeb";
 const app = express();
 
-app.use(express.static(__dirname + "/skimWeb"))
+app.use(express.static(naddress))
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/skimWeb" + "/index.html");
+    res.sendFile(naddress + "/index.html");
 });
 
 app.get("/skim_project", (req, res) => {
     const request = req.query.num;
-    res.sendFile(__dirname + "/skimWeb" + "/skim_p" +request +".html");
+    res.sendFile(naddress + "/skim_p" +request +".html");
 });
 
 app.get("/about", (req, res) => {
-    res.sendFile(__dirname + "/skimWeb" + "/skim_about.html");
+    res.sendFile(naddress + "/skim_about.html");
 });
 
 app.get("/work", (req, res) => {
-    res.sendFile(__dirname + "/skimWeb" + "/skim_work.html");
+    res.sendFile(naddress + "/skim_work.html");
 });
 
 //p1) get sensor value
