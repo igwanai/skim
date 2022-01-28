@@ -2,7 +2,7 @@
   "name": "skim",
   "version": "1.0.0",
   "main": "app.js",
-  "repository": "https://github.com/swoooon/skim.git",
+  "repository": "https://github.com/igwanai/skim.git",
   "author": "swoooon",
   "license": "MIT",
   "dependencies": {
