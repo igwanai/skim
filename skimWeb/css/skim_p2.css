@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    background-color: #b9ffa7;
+    overflow: hidden;
+}
+
+/* skiiiiim */
+.text{
+    fill:#444444;
+    position: absolute;
+    width: 100%;
+    height: 11vmin;
+    font-family:'Manrope', sans-serif;
+    font-weight: 500;
+    font-size:10vmin;
+
+    top: 20vmin;
+    left:0;
+}
+
+#skim{
+    transform: translate(0vmin, 10vmin)
+}
+
+
+
+/* �덉씠�꾩썐 */
+#wrap {
+    margin: 0 auto;
+}
+#nav {
+    float: left;
+    width: 200px;
+    height: 100px;
+}
+.back {
+    margin-top: 35px;
+    margin-left: 30px;
+}
+button {
+    /* �앸왂 */
+    margin: 0;
+    padding: 0;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: auto;
+    border: none;
+    background: var(--button-bg-color);
+  }
