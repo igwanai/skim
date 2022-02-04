@@ -5,24 +5,44 @@ body{
 }
 
 /* skiiiiim */
-.text{
-    fill:#444444;
-    position: absolute;
+.graphic{
     width: 100%;
-    height: 11vmin;
-    font-family:'Manrope', sans-serif;
-    font-weight: 500;
-    font-size:10vmin;
-
-    top: 20vmin;
+    height: 100%;
+    position: relative;
+    top: 0vmin;
     left:0;
+    bottom: 0%;
 }
 
-#skim{
-    transform: translate(0vmin, 10vmin)
+#text{
+    /* position */
+    position: fixed;
+    bottom: 0vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+
+    /* text property */
+    color: #444444;
+    font-family:'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 7vmin;
+    white-space: normal;
+    line-height: 7vmin;
+    word-break: break-all;
+
+    /* don't drag */
+    -webkit-user-select:none;
+    -moz-user-select:none; 
+    -ms-user-select:none; 
+    user-select:none;
 }
 
-
+#blurbox {
+    width: 30vw;
+    height: 100%;
+    position: absolute;
+    filter: blur(5px);
+}
 
 /* �덉씠�꾩썐 */
 #wrap {
@@ -30,9 +50,10 @@ body{
 }
 #nav {
     float: left;
-    width: 200px;
+    width: 150px;
     height: 100px;
 }
+
 .back {
     margin-top: 35px;
     margin-left: 30px;
