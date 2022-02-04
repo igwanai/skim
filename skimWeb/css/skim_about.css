@@ -20,7 +20,7 @@
   }
   #contents {
     float: left;
-    width: 510px;
+    width: 550px;
     height: 200px;
   }
   
@@ -33,6 +33,16 @@
   }
 
   /* 세부 레이아웃 */
+  #contents1 {
+    width: 550px;
+    height: 150px;
+    color: #444;
+  }
+  #contents2 {
+    width: 550px;
+    height: 150px;
+    color: #444;
+  }
   #contents_tit_1 {
     width: 100px;
     font-size: 14px;
@@ -40,30 +50,37 @@
     margin-top: 35px;
     font-weight: 500;
     color: #444;
+    position: absolute;
   }
   #contents_tit_2 {
     float: left;
     width: 100px;
     font-size: 14px;
     font-family: "Manrope", sans-serif;
-    margin-top: 60px;
+    margin-top: 0px;
     font-weight: 500;
     color: #444;
+    position: absolute;
   }
   #contents_cont_1 {
-    float: left;
+    float: right;
+    width: 410px;
     font-size: 14px;
     font-family: "Manrope", sans-serif;
+    font-weight: 400;
     margin-top: 35px;
+    color: #444;
+    position: inherit;
   }
   #contents_cont_2 {
-    width: 400px;
-    float: left;
+    width: 410px;
+    float: right;
     font-size: 14px;
     font-family: "Manrope", sans-serif;
-    margin-top: 60px;
-    font-weight: 600;
+    margin-top: 0px;
+    font-weight: 400;
     color: #444;
+    position: inherit;
   }
 
   :root {
