@@ -74,7 +74,7 @@ class root_graphic{
     }
 
     move_m(val){
-        var x = Math.min(Math.max(this.mx+val, 34), this.max_mx)
+        var x = Math.min(Math.max(val, 34), this.max_mx)
         this.mx = x;
         document.getElementById("m").style.transform = "translate("+ String(x) + "vmin, "+ String(this.y)+ "vmin)";
     }
@@ -109,20 +109,30 @@ class root_graphic{
         }
     }
 
+    vmin(value){
+        if(window.innerWidth>window.innerHeight){
+            return 100 *value/window.innerHeight;
+        }else{
+            return 100 * value/window.innerWidth;
+        }
+
+    }
+
     //add, remove i depends on m position
-    add_remove_i(){
+    add_i(mx){
         var temp = this.cur
-        if(this.cur < this.mx){
-            for(var i = this.cur+i_width; i<=this.mx; i+=i_width){  
-                this.addElement(String(i).concat(String(this.y)), i - 7.5);
-                temp = i    
-            } 
-                                                           
-        } else if(this.cur > this.mx){
-            for(var i = this.cur; i>= this.mx; i-=i_width){
-                this.removeElement(String(i).concat(String(this.y)));
-                temp = i  
-            }
+        for(var i = this.cur+i_width; i<= this.vmin(mx); i+=i_width){  
+            this.addElement(String(i).concat(String(this.y)), i - 7.5);
+            temp = i    
+        }                                                    
+        this.cur = Math.max(temp, this.min);
+    }
+
+    remove_i(mx){
+        var temp = this.cur
+        for(var i = this.cur; i>= this.vmin(mx); i-=i_width){
+            this.removeElement(String(i).concat(String(this.y)));
+            temp = i  
         }
         this.cur = Math.max(temp, this.min);
     }
@@ -130,27 +140,78 @@ class root_graphic{
 
 var root = new root_graphic()         //첫 번째 줄
 
-// get mouse wheel value, change 'm' position, add/remove 'i'
-function display(val){
-    //move m
-    root.move_m(val);                          //  max = width_vh               pure value = anchor
-    root.add_remove_i();
+
+
+let element_m = document.getElementById('m')
+let isPause = false;
+let timer;
+
+function get_matrix(){
+    if(!isPause){
+        const style = window.getComputedStyle(element_m)
+        const matrix = style.transform
+        const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ')
+        const x = matrixValues[4]
+        root.add_i(x);
+        root.remove_i(x);
+    }
 }
+
+element_m.addEventListener('transitionstart', function(){
+    console.log("transiton start")
+    isPause = false;
+    timer = setInterval(function () {
+        get_matrix();
+    }, 100);
+});
+
+element_m.addEventListener('transitionend', function(){
+    console.log("transiton end")
+    clearInterval(timer);
+    isPause = true;
+});
+
 
 
 
 //mouse wheel input
 let sensitivity = 0.05; //마우스휠 감도 조정
 window.addEventListener("wheel", function(event){
-    display(event.deltaY * sensitivity);
+    root.move_m(root.mx + event.deltaY * sensitivity);
 });
 
 //window resize event
 window.addEventListener("resize", function(){
-    rowss.update_row()
-    root.update_max_mx()
-    display(0);
+    element_m.classList.add('notransition')
+    rowss.update_row();
+    root.update_max_mx();
+    root.move_m(root.mx);
+    element_m.offsetHeight;
+    element_m.classList.remove('notransition')
 });
+
+
+
+
+let sql_button = document.querySelector(".get_sql")
+
+var toggle = false;
+let interval;
+sql_button.onclick = function() { //버튼을 클릭했을 때
+    toggle = toggle == false? true:false;
+    if(toggle){
+        sql_button.innerHTML = ("sensor(......o)");
+        interval = setInterval(() => {
+            fetch("/sensor")
+            .then((res) => res.json())
+            .then((res) => root.move_m(res.num));  
+        }, 500);
+    }else{
+        clearInterval(interval);
+        sql_button.innerHTML = ("sensor(o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)")
+    }
+}
+
 
 
 //button hover&click event
@@ -167,10 +228,4 @@ button.onclick = function() { //버튼을 클릭했을 때
     location.href='/';
 }
 
-let sql_button = document.querySelector(".get_sql")
 
-sql_button.onclick = function() { //버튼을 클릭했을 때
-    fetch("/sensor")
-    .then((res) => res.json())
-    .then((res) => display(res.num*0.02));
-}

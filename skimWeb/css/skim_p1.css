@@ -19,19 +19,37 @@ body{
 }
 
 #ski {
+    position: absolute;
     transform: translate(0vmin, 25vmin)
 }
 
 #m{
-    transition: all 1.5s;
+    position: absolute;
     transform: translate(34vmin, 25vmin);
-    animation-timing-function: ease-in-out;
+
 }
+
+.transition{
+    animation-timing-function: ease-in-out;
+    -webkit-transition: transfrom 2s;
+    -moz-transition: transfrom 2s;
+    -o-transition: transfrom 2s;
+    transition: transform 2s;
+}
+
+.notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+
 
 .get_sql{
     position: absolute;
     margin-top: 35px;
-    margin-left: 200px;
+    margin-left: 400px;
 }
 
 /* 레이아웃 */
