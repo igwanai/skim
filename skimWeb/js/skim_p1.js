@@ -130,6 +130,16 @@ class root_graphic{
 
 var root = new root_graphic()         //첫 번째 줄
 
+
+// get mouse wheel value, change 'm' position, add/remove 'i'
+function display(val){
+    //move m
+    root.move_m(val);                          //  max = width_vh               pure value = anchor
+    root.add_remove_i();
+}
+
+
+
 //mouse wheel input
 let sensitivity = 0.05; //마우스휠 감도 조정
 window.addEventListener("wheel", function(event){
