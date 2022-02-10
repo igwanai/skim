@@ -130,6 +130,7 @@ class root_graphic{
 
 var root = new root_graphic()         //첫 번째 줄
 
+
 // get mouse wheel value, change 'm' position, add/remove 'i'
 function display(val){
     //move m
@@ -137,17 +138,22 @@ function display(val){
     root.add_remove_i();
 }
 
+
+
 //mouse wheel input
 let sensitivity = 0.05; //마우스휠 감도 조정
 window.addEventListener("wheel", function(event){
-    display(event.deltaY * sensitivity);
+    root.move_m(event.deltaY * sensitivity);
+    root.add_remove_i();
 });
 
 //window resize event
 window.addEventListener("resize", function(){
     rowss.update_row()
     root.update_max_mx()
-    display(0);
+
+    root.move_m(0);
+    root.add_remove_i();
 });
 
 
@@ -163,12 +169,4 @@ button.onpointerleave = function() { //버튼 안에서 밖으로 마우스가 �
 button.onclick = function() { //버튼을 클릭했을 때
     button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:red;">ac</span>k)';
     location.href='index.html';
-}
-
-let sql_button = document.querySelector(".get_sql")
-
-sql_button.onclick = function() { //버튼을 클릭했을 때
-    fetch("/sensor")
-    .then((res) => res.json())
-    .then((res) => display(res.num*0.02));
 }
