@@ -137,8 +137,6 @@ function display(val){
     root.add_remove_i();
 }
 
-
-
 //mouse wheel input
 let sensitivity = 0.05; //마우스휠 감도 조정
 window.addEventListener("wheel", function(event){
