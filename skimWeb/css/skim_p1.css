@@ -26,7 +26,6 @@ body{
 #m{
     position: absolute;
     transform: translate(34vmin, 25vmin);
-
 }
 
 .transition{
@@ -35,13 +34,6 @@ body{
     -moz-transition: transfrom 2s;
     -o-transition: transfrom 2s;
     transition: transform 2s;
-}
-
-.notransition {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
 }
 
 

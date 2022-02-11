@@ -7,7 +7,9 @@ const db = mysql.createConnection({
     database: "db"
 })
 
-db.connect();
+db.connect(err => {
+    if(err) throw new Error(err)
+});
 
 class sensor{
     static async getValue(){

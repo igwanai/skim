@@ -157,7 +157,7 @@ function get_matrix(){
     }
 }
 
-element_m.addEventListener('transitionstart', function(){
+element_m.addEventListener('transitionrun', function(){
     console.log("transiton start")
     isPause = false;
     timer = setInterval(function () {
@@ -171,47 +171,21 @@ element_m.addEventListener('transitionend', function(){
     isPause = true;
 });
 
-
-
-
-//mouse wheel input
-let sensitivity = 0.05; //마우스휠 감도 조정
-window.addEventListener("wheel", function(event){
-    root.move_m(root.mx + event.deltaY * sensitivity);
-});
-
 //window resize event
 window.addEventListener("resize", function(){
-    element_m.classList.add('notransition')
     rowss.update_row();
     root.update_max_mx();
     root.move_m(root.mx);
-    element_m.offsetHeight;
-    element_m.classList.remove('notransition')
 });
 
-
-
-
-let sql_button = document.querySelector(".get_sql")
-
-var toggle = false;
-let interval;
-sql_button.onclick = function() { //버튼을 클릭했을 때
-    toggle = toggle == false? true:false;
-    if(toggle){
-        sql_button.innerHTML = ("sensor(......o)");
-        interval = setInterval(() => {
-            fetch("/sensor")
-            .then((res) => res.json())
-            .then((res) => root.move_m(res.num));  
-        }, 500);
-    }else{
-        clearInterval(interval);
-        sql_button.innerHTML = ("sensor(o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)")
-    }
-}
-
+let interval = setInterval(() => {
+    fetch("/sensor")
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res)
+        root.move_m(res.num)
+    });  
+}, 500);
 
 
 //button hover&click event
