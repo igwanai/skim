@@ -178,8 +178,22 @@ window.addEventListener("resize", function(){
     root.move_m(root.mx);
 });
 
+// let testnum = 100;
+// element_m.onclick = function(){
+//     testnum += 100;
+//     const req = {num: String(testnum),};
+//     fetch("/updateValue", {
+//         method: "POST",
+//         headers : {"Content-Type" : "application/json",},
+//         body: JSON.stringify(req),
+//     })
+//     .then((res) => res.json())
+//     .then(console.log)
+//     .catch(console.log);
+// };
+
 let interval = setInterval(() => {
-    fetch("/sensor")
+    fetch("/getValue")
     .then((res) => res.json())
     .then((res) => {
         console.log(res)

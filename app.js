@@ -1,11 +1,16 @@
 const db = require("./skimWeb/config/db")
 const express = require("express");
+var bodyParser = require('body-parser')
+
 const naddress = __dirname + "/skimWeb";
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static(naddress))
 
+app.use(express.static(naddress))
 app.use(express.static(__dirname + "/skimWeb"))
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
     res.sendFile(naddress + "/index.html");
@@ -25,9 +30,14 @@ app.get("/work", (req, res) => {
 });
 
 //p1) get sensor value
-app.get("/sensor", async (req, res) => {
+app.get("/getValue", async(req, res) => {
     const response = await db.sensor.getValue();
     res.json(response);
+});
+
+app.post("/updateValue", async(req, res)=>{
+    const response = await db.sensor.updateValue(req.body.num);
+    res.json(response)
 });
 
 

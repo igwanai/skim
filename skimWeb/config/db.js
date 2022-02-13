@@ -13,12 +13,21 @@ db.connect(err => {
 });
 
 class sensor{
-    static async getValue(){
+    static getValue(){
         return new Promise((resolve, reject) => {
             db.query("SELECT num FROM data", (err, data)=>{
-                if(err) reject(err);
+                if(err) reject(`${err}`);
                 resolve(data[0]);
             });   
+        });
+    }
+
+    static updateValue(newValue){
+        return new Promise((resolve, reject) => {
+            db.query("UPDATE data SET num = ?" , [newValue], (err)=>{
+                if(err) reject(`${err}`);
+                resolve({sucess:true});
+            });
         });
     }
 }
