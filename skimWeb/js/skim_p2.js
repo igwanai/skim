@@ -1,29 +1,26 @@
 let sensitivity = 0.003; //마우스휠 감도 조정
 window.addEventListener("wheel", function(event){
     getBlurred(event.deltaY * sensitivity);
-    
-});
-window.addEventListener("wheel", function(event){
-    except.style.filter = 'none';
 });
 
-let text = document.querySelector("#getblurred");
-// let except = document.querySelector("#except");
+let texts = document.getElementsByClassName("getblurred");
 var wheelval = 0;
 
 function getBlurred(wheel) {
     wheelval += wheel
     if (wheelval > 15) { 
-        text.style.filter = 'blur('+15+"px)"; 
-        // except.innerHTML = "&nbsp;&nbsp;&nbsp;";
+        for(i = 0; i<texts.length; i++){
+            texts[i].style.filter = 'blur('+15+"px)"; 
         }
-    else if (wheelval < 0) { 
+    }
+    else if (wheelval < 0){ 
         text.style.filter = 'blur('+0+"px)"; 
+    }
+    else{ 
+        for(i = 0; i<texts.length; i++){
+            texts[i].style.filter = 'blur('+wheelval+"px)";
         }
-    else { 
-        except.innerHTML = "&nbsp;&nbsp;&nbsp;";
-        text.style.filter = 'blur('+wheelval+"px)";}
-        
+    }
 }
 
 
