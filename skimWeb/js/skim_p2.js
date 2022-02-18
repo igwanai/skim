@@ -3,24 +3,31 @@ window.addEventListener("wheel", function(event){
     getBlurred(event.deltaY * sensitivity);
 });
 
-let texts = document.getElementsByClassName("getblurred");
+let text = document.querySelectorAll("#text #getblurred");
+
 var wheelval = 0;
 
 function getBlurred(wheel) {
     wheelval += wheel
     if (wheelval > 15) { 
-        for(i = 0; i<texts.length; i++){
-            texts[i].style.filter = 'blur('+15+"px)"; 
+        for (i = 0; i < text.length; i++) {
+            notskim = text.item(i);
+            notskim.style.filter = 'blur('+15+"px)"; 
         }
     }
-    else if (wheelval < 0){ 
-        text.style.filter = 'blur('+0+"px)"; 
-    }
-    else{ 
-        for(i = 0; i<texts.length; i++){
-            texts[i].style.filter = 'blur('+wheelval+"px)";
+    else if (wheelval < 0) { 
+        for (i = 0; i < text.length; i++) {
+            notskim = text.item(i);
+            notskim.style.filter = 'blur('+0+"px)"; 
         }
     }
+    else { 
+        for (i = 0; i < text.length; i++) {
+            notskim = text.item(i);
+            notskim.style.filter = 'blur('+wheelval+"px)";
+        }
+    }
+        
 }
 
 
