@@ -3,14 +3,8 @@ window.addEventListener("wheel", function(event){
     getBlurred(event.deltaY * sensitivity);
 });
 
-
-// let text = document.querySelector("#getblurred");
-// let except = document.querySelector("#except");
 let text = document.querySelectorAll("#text #getblurred");
-// for (const i = 0; i < text.length; i++) {
-//     const notskim = text.notskim(i);
-//     notskim.style.filter = 
-// }
+
 var wheelval = 0;
 
 function getBlurred(wheel) {
@@ -23,7 +17,6 @@ function getBlurred(wheel) {
     }
     else if (wheelval < 0) { 
         for (i = 0; i < text.length; i++) {
-            console.log("실행"+text.length);
             notskim = text.item(i);
             notskim.style.filter = 'blur('+0+"px)"; 
         }

@@ -37,10 +37,7 @@ body{
     user-select:none;
 }
 
-#getblurred {
-    filter: blur(0px);
-}
-#except {
+.getblurred {
     filter: blur(0px);
 }
 
