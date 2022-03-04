@@ -74,3 +74,11 @@ button {
     pointer-events: none;
     z-index: 10000;
 }
+::-moz-selection {
+    fill: #fff;
+    background: #444;
+}
+::selection {
+    fill: #fff;
+    background: #444;
+}
