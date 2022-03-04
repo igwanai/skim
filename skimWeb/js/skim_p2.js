@@ -43,6 +43,16 @@ button.onpointerleave = function() { //버튼 안에서 밖으로 마우스가 �
     button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back)';
 }
 button.onclick = function() { //버튼을 클릭했을 때
-    button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:red;">ac</span>k)';
+    button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:#749E69;">ac</span>k)';
     location.href='index.html';
 }
+
+document.addEventListener("mousemove", evt => {
+    const mouseX = evt.clientX;
+    const mouseY = evt.clientY;
+  
+    gsap.set(".cursor", {
+      x: mouseX,
+      y: mouseY });
+  
+  });
