@@ -1,7 +1,9 @@
 body{
-    margin: 0;
     background-color: #b9ffa7;
     overflow: hidden;
+}
+body, body * {
+    cursor: none;
 }
 
 /* skiiiiim */
@@ -31,10 +33,10 @@ body{
     word-break: break-all;
 
     /* don't drag */
-    -webkit-user-select:none;
+    /* -webkit-user-select:none;
     -moz-user-select:none; 
     -ms-user-select:none; 
-    user-select:none;
+    user-select:none; */
 }
 
 .getblurred {
@@ -74,4 +76,28 @@ button {
 
 @media screen and (max-height: 650px) {
     #text { top: 100px; }
+}
+
+.cursor { 
+    position: fixed;
+    background: #444;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border-radius: 50%;
+    will-change: transform;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    pointer-events: none;
+    z-index: 10000;
+}
+::-moz-selection {
+    color: #b9ffa7;
+    background: #444;
+}
+::selection {
+    color: #b9ffa7;
+    background: #444;
 }

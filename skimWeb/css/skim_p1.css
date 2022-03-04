@@ -3,6 +3,9 @@ body{
     background-color: white;
     overflow: hidden;
 }
+body, body * {
+    cursor: none;
+}
 
 /* skiiiiim */
 .graphic{
@@ -55,3 +58,19 @@ button {
     border: none;
     background: var(--button-bg-color);
   }
+
+  .cursor { 
+    position: fixed;
+    background: #444;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border-radius: 50%;
+    will-change: transform;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    pointer-events: none;
+    z-index: 10000;
+}
