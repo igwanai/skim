@@ -1,12 +1,54 @@
 var imgArray = new Array();
+// var files = [
+//     "./images/skim_about_1.png",
+//     "./images/skim_about_2.png",
+//     "./images/skim_about_3.png",
+//     "./images/skim_about_4.png",
+//     "./images/skim_about_5.png"]
+// var loadcount = 0;
+var indexNum = 0;
+
+
 imgArray[0] = "images/skim_about_1.png";
 imgArray[1] = "images/skim_about_2.png";
 imgArray[2] = "images/skim_about_3.png";
 imgArray[3] = "images/skim_about_4.png";
+imgArray[4] = "images/skim_about_5.png";
+imgArray[4] = "images/skim_about_6.png";
 
-var indexNum = 0;
+// 이미지 로딩을 이쁘게 해보려고 한 흔적
+// $(document).ready( function() {
+//     for (var i=0; i<files.length; i++) {
+//         imgArray[i] = new Image();
+//         imgArray[i].src = files[i];
+//     }
+// });
 
-showImage(indexNum);
+$(window).on('load', function () {
+    $("#load").hide();
+    showImage(indexNum);
+});
+
+// function loadImage() {
+//     for(i=0; i<imgArray.length; i++) {
+//         imgArray[i].onload = function() {
+//             loadcount++;
+//             window.alert(loadcount);
+//         }
+        
+//     }
+//     // var timer = setInterval(function() {
+//     if (loadcount == 5) {
+//         // clearInterval(timer);
+//         $("#load").hide();
+//         showImage(indexNum);
+//     }
+//     else {
+//         $("#load").show();
+//     }
+//     // }, 100);
+// }
+// "url("+imgArray[num]+")";
 
 function showImage(num) {
     var objImg = document.getElementById("image");

@@ -1,3 +1,7 @@
+$(window).on('load', function () {
+     $("#load").hide(); 
+});
+
 var p1_button = document.querySelector(".project1");
 var p2_button = document.querySelector(".project2");
 var p3_button = document.querySelector(".project3");
