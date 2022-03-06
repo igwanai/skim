@@ -1,134 +1,179 @@
-  /* 리셋 */
+/* 리셋 */
 
-  * {
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+}
+#load { 
+  width: 100%; 
+  height: 100%; 
+  top: 0; 
+  left: 0; 
+  position: fixed; 
+  display: block; 
+  opacity: 0.8; 
+  background: white; 
+  z-index: 99; 
+  text-align: center; 
+} 
+#load > img { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  z-index: 100; 
+}
+/* 전체 레이아웃 */
+#wrap {
+  margin: 0 auto;
+}
+#nav {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+/* #container {
+  float: left;
+  width: 1000px;
+  height: 200px;
+  background-color: aqua;
+} */
+#contents {
+  float: left;
+  position: fixed;
+  bottom: 0;
+  width: 570px;
+  height: 200px;
+}
+
+#image {
+  clear: both;
+  height: 77vh;
+  background-repeat: no-repeat; 
+  background-size: 100%;
+  background-position: center;
+}
+
+/* 세부 레이아웃 */
+#contents1 {
+  width: 550px;
+  height: 150px;
+  color: #444;
+}
+#contents2 {
+  width: 550px;
+  height: 150px;
+  color: #444;
+}
+#contents_tit_1 {
+  width: 100px;
+  font-size: 14px;
+  font-family: "Manrope", sans-serif;
+  margin-top: 35px;
+  font-weight: 500;
+  color: #444;
+  position: absolute;
+}
+#contents_tit_2 {
+  float: left;
+  width: 100px;
+  font-size: 14px;
+  font-family: "Manrope", sans-serif;
+  margin-top: 0px;
+  font-weight: 500;
+  color: #444;
+  position: absolute;
+}
+#contents_cont_1 {
+  float: right;
+  width: 420px;
+  font-size: 14px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  margin-top: 35px;
+  color: #444;
+  position: inherit;
+
+  user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none; 
+  -webkit-user-select: none;
+}
+#contents_cont_2 {
+  width: 420px;
+  float: right;
+  font-size: 14px;
+  font-family: "Manrope", sans-serif;
+  margin-top: 0px;
+  font-weight: 400;
+  color: #444;
+  position: inherit;
+}
+
+:root {
+  --button-color: #ffffff00;
+  --button-bg-color: #ffffff00;
+}
+
+button {
+  /* 생략 */
+  margin: 0;
+  padding: 0;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: auto;
+  border: none;
+  background: var(--button-bg-color);
+}
+
+.back {
+  margin-top: 35px;
+  margin-left: 30px;
+}
+
+@media screen and (max-height: 950px) {
+  #contents { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    
   }
-  #load { 
-    width: 100%; 
-    height: 100%; 
-    top: 0; 
-    left: 0; 
-    position: fixed; 
-    display: block; 
-    opacity: 0.8; 
-    background: white; 
-    z-index: 99; 
-    text-align: center; 
-  } 
-  #load > img { 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    z-index: 100; 
+}
+@media screen and (max-width: 770px) {
+  #contents { 
+    position: absolute;
+    top: 10vh;
   }
-  /* 전체 레이아웃 */
-  #wrap {
-    margin: 0 auto;
-  }
-  #nav {
-    float: left;
-    width: 200px;
-    height: 200px;
-  }
-  #container {
-    float: left;
-    width: 1000px;
-    height: 200px;
-  }
+}
+@media screen and (max-width: 580px) {
   #contents {
-    float: left;
-    width: 550px;
-    height: 200px;
-  }
-  
-  #image {
-    clear: both;
-    height: 700px;
-    background-repeat: no-repeat; 
-    background-size: 100%;
-    background-position: center;
-  }
-
-  /* 세부 레이아웃 */
-  #contents1 {
-    width: 560px;
-    height: 150px;
-    color: #444;
-  }
-  #contents2 {
-    width: 560px;
-    height: 150px;
-    color: #444;
+    width: 100vw;
+    height: 40vh;
+    left: 0vh;
   }
   #contents_tit_1 {
-    width: 100px;
-    font-size: 14px;
-    font-family: "Manrope", sans-serif;
-    margin-top: 35px;
-    font-weight: 500;
-    color: #444;
-    position: absolute;
+    width: 5vw;
   }
   #contents_tit_2 {
-    float: left;
-    width: 100px;
-    font-size: 14px;
-    font-family: "Manrope", sans-serif;
-    margin-top: 0px;
-    font-weight: 500;
-    color: #444;
-    position: absolute;
+    width: 5vw;
   }
-  #contents_cont_1 {
-    float: right;
-    width: 410px;
-    font-size: 14px;
-    font-family: "Manrope", sans-serif;
-    font-weight: 400;
-    margin-top: 35px;
-    color: #444;
-    position: inherit;
-
-    user-select: none; 
-    -moz-user-select: none;
-    -ms-user-select: none; 
-    -webkit-user-select: none;
+  #contents_cont_1 { 
+    width: 80vw;
+    height: 15vh;
   }
-  #contents_cont_2 {
-    width: 410px;
-    float: right;
-    font-size: 14px;
-    font-family: "Manrope", sans-serif;
-    margin-top: 0px;
-    font-weight: 400;
-    color: #444;
-    position: inherit;
+  #contents_cont_2 { 
+    width: 80vw;
+    height: 15vh;
   }
-
-  :root {
-    --button-color: #ffffff00;
-    --button-bg-color: #ffffff00;
+}
+@media (hover: none) and (pointer: coarse) {
+  #contents { 
+    justify-content: center;
   }
-  
-  button {
-    /* 생략 */
-    margin: 0;
-    padding: 0;
-
-    font-family: "Manrope", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #444;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    width: auto;
-    border: none;
-    background: var(--button-bg-color);
-  }
-
-  .back {
-    margin-top: 35px;
-    margin-left: 30px;
-  }
+}

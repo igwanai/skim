@@ -1,54 +1,28 @@
-var imgArray = new Array();
-// var files = [
-//     "./images/skim_about_1.png",
-//     "./images/skim_about_2.png",
-//     "./images/skim_about_3.png",
-//     "./images/skim_about_4.png",
-//     "./images/skim_about_5.png"]
-// var loadcount = 0;
+var imgArray = [
+    "images/skim_about_1.png",
+    "images/skim_about_2.png",
+    "images/skim_about_3.png",
+    "images/skim_about_4.png",
+    "images/skim_about_5.png",
+    "images/skim_about_6.png"
+];
+var files = new Array();
+
 var indexNum = 0;
 
-
-imgArray[0] = "images/skim_about_1.png";
-imgArray[1] = "images/skim_about_2.png";
-imgArray[2] = "images/skim_about_3.png";
-imgArray[3] = "images/skim_about_4.png";
-imgArray[4] = "images/skim_about_5.png";
-imgArray[4] = "images/skim_about_6.png";
-
-// 이미지 로딩을 이쁘게 해보려고 한 흔적
-// $(document).ready( function() {
-//     for (var i=0; i<files.length; i++) {
-//         imgArray[i] = new Image();
-//         imgArray[i].src = files[i];
-//     }
-// });
+//미리 이미지를 load해놓기.. 근데 왜.. 깜빡거림이 사라졌는지 이해 불가
+if (document.images) {
+    for (var i=0; i<6; i++) {
+        files[i] = new Image();
+        files[i].src = "./images/skim_about_"+(i+1)+".png";
+    }
+}
 
 $(window).on('load', function () {
     $("#load").hide();
     showImage(indexNum);
+    
 });
-
-// function loadImage() {
-//     for(i=0; i<imgArray.length; i++) {
-//         imgArray[i].onload = function() {
-//             loadcount++;
-//             window.alert(loadcount);
-//         }
-        
-//     }
-//     // var timer = setInterval(function() {
-//     if (loadcount == 5) {
-//         // clearInterval(timer);
-//         $("#load").hide();
-//         showImage(indexNum);
-//     }
-//     else {
-//         $("#load").show();
-//     }
-//     // }, 100);
-// }
-// "url("+imgArray[num]+")";
 
 function showImage(num) {
     var objImg = document.getElementById("image");
@@ -70,6 +44,6 @@ button.onpointerleave = function() { //버튼 안에서 밖으로 마우스가 �
     button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back)';
 }
 button.onclick = function() { //버튼을 클릭했을 때
-    button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:red;">ac</span>k)';
+    button.innerHTML = '(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span style="color:#AFAFAF;">ac</span>k)';
     location.href='index.html';
 }
