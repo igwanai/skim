@@ -1,9 +1,27 @@
   /* 리셋 */
+
   * {
     margin: 0;
     padding: 0;
   }
-
+  #load { 
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0; 
+    position: fixed; 
+    display: block; 
+    opacity: 0.8; 
+    background: white; 
+    z-index: 99; 
+    text-align: center; 
+  } 
+  #load > img { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    z-index: 100; 
+  }
   /* 전체 레이아웃 */
   #wrap {
     margin: 0 auto;
@@ -34,12 +52,12 @@
 
   /* 세부 레이아웃 */
   #contents1 {
-    width: 550px;
+    width: 560px;
     height: 150px;
     color: #444;
   }
   #contents2 {
-    width: 550px;
+    width: 560px;
     height: 150px;
     color: #444;
   }
@@ -71,6 +89,11 @@
     margin-top: 35px;
     color: #444;
     position: inherit;
+
+    user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    -webkit-user-select: none;
   }
   #contents_cont_2 {
     width: 410px;
