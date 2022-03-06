@@ -6,6 +6,7 @@ window.addEventListener("wheel", function(event){
 let text = document.querySelectorAll("#text #getblurred");
 
 var wheelval = 0;
+var y = 0;
 
 function getBlurred(wheel) {
     wheelval += wheel
@@ -30,7 +31,19 @@ function getBlurred(wheel) {
         
 }
 
-
+$(body).on("touchstart"), function(e) {
+    y = e.originalEvent.changedTouches[0].clientY;
+}
+$(body).on("touchmove"), function(e) {
+    var moveY = moveY-y;
+    for (i = 0; i < text.length; i++) {
+        notskim = text.item(i);
+        notskim.style.filter = 'blur('+y/100+"px)"; 
+    }
+}
+$(body).on("touchend"), function(e) {
+    y = 0;
+}
 
 
 //button hover&click event
