@@ -1,103 +1,120 @@
-body{
-    background-color: #b9ffa7;
-    overflow: hidden;
+body {
+  background-color: #b9ffa7;
+  overflow: hidden;
 }
-body, body * {
-    cursor: none;
+body,
+body * {
+  cursor: none;
 }
 
 /* skiiiiim */
-.graphic{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    top: 0vmin;
-    left:0;
-    bottom: 0%;
+.graphic {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0vmin;
+  left: 0;
+  bottom: 0%;
 }
 
-#text{
-    /* position */
-    position: fixed;
-    bottom: 5vh;
-    margin-left: 5vh;
-    margin-right: 5vh;
+#text {
+  /* position */
+  position: fixed;
+  bottom: 5vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
 
-    /* text property */
-    color: #444444;
-    font-family:'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 7vmin;
-    white-space: normal;
-    line-height: 7vmin;
-    word-break: break-all;
+  /* text property */
+  color: #444444;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 7vmin;
+  white-space: normal;
+  line-height: 7vmin;
+  word-break: break-all;
 
-    /* don't drag */
-    /* -webkit-user-select:none;
+  /* don't drag */
+  /* -webkit-user-select:none;
     -moz-user-select:none; 
     -ms-user-select:none; 
     user-select:none; */
 }
 
 .getblurred {
-    filter: blur(0px);
+  filter: blur(0px);
 }
 
 /* �덉씠�꾩썐 */
 #wrap {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 #nav {
-    float: left;
-    width: 150px;
-    height: 100px;
+  float: left;
+  width: 100%;
+  height: 100px;
 }
-
+#nav_back {
+  float: left;
+  width: 150px;
+  height: 100px;
+}
+#nav_info {
+  float: right;
+  width: 125px;
+  height: 100px;
+}
 .back {
-    margin-top: 35px;
-    margin-left: 30px;
+  margin-top: 35px;
+  margin-left: 30px;
+}
+.info {
+  float: left;
+  margin-top: 35px;
+  margin-left: 30px;
 }
 button {
-    /* �앸왂 */
-    margin: 0;
-    padding: 0;
+  /* �앸왂 */
+  margin: 0;
+  padding: 0;
 
-    font-family: "Manrope", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #444;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    width: auto;
-    border: none;
-    background: var(--button-bg-color);
-  }
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: auto;
+  border: none;
+  background: var(--button-bg-color);
+}
 
 @media screen and (max-height: 650px) {
-    #text { top: 100px; }
+  #text {
+    top: 100px;
+  }
 }
 
-.cursor { 
-    position: fixed;
-    background: #444;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border-radius: 50%;
-    will-change: transform;
-    -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    pointer-events: none;
-    z-index: 10000;
+.cursor {
+  position: fixed;
+  background: #444;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  will-change: transform;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
 }
 ::-moz-selection {
-    color: #b9ffa7;
-    background: #444;
+  color: #b9ffa7;
+  background: #444;
 }
 ::selection {
-    color: #b9ffa7;
-    background: #444;
+  color: #b9ffa7;
+  background: #444;
 }
