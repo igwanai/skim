@@ -1,5 +1,12 @@
+$(document).ready(function() {
+    $("#greeting").hide();
+})
 $(window).on('load', function () {
      $("#load").hide(); 
+     $("#greeting").show();
+     setTimeout(function() {
+         $("#greeting").hide();
+     }, 1500);
 });
 
 var p1_button = document.querySelector(".project1");
