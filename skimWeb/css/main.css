@@ -62,7 +62,11 @@
   font-size: 5rem;
   font-weight: 700;
   color: #fff;
-  text-align: center;  
+  text-align: center; 
+  -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 /* 전체 레이아웃 */
@@ -74,6 +78,10 @@
   float: left;
   width: 100%;
   height: fit-content;
+  -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 #footer {
   float: left;
@@ -136,8 +144,17 @@
   left: 0;
   max-width: 100%;
   height: inherit;  
+  -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 @media screen and (max-width: 1520px) {
+  .footer-container .centered img {
+    display: none;
+  }
+}
+@media screen and (max-height: 580px) {
   .footer-container .centered img {
     display: none;
   }
