@@ -41,6 +41,7 @@
   }
   to {
       opacity: 0;
+      display: none;
   }
 }
 @-webkit-keyframes fadeout { /* Safari and Chrome */
@@ -49,6 +50,7 @@
   }
   to {
       opacity: 0;
+      display: none;
   }
 }
 #hello {
