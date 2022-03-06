@@ -1,5 +1,6 @@
 {
   "name": "skim",
+  "homepage": "http://mydomain.com",
   "version": "1.0.0",
   "main": "app.js",
   "repository": "https://github.com/igwanai/skim.git",
