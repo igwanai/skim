@@ -21,9 +21,9 @@ p3_button.addEventListener("click", go_p3);
 works_button.addEventListener("click", go_works);
 about_button.addEventListener("click", go_about);
 
-function go_p1(){location.href = "/skim_project?num=1";};
-function go_p2(){location.href = "/skim_project?num=2";};
-function go_p3(){location.href = "/skim_project?num=3";};
+function go_p1(){location.href = "/skim_p1.html";};
+function go_p2(){location.href = "/skim_p2.html";};
+function go_p3(){location.href = "/skim_p3.html";};
 
-function go_works(){location.href = "/work";};
-function go_about(){location.href = "/about";};
+function go_works(){location.href = "/skim_work.html";};
+function go_about(){location.href = "/skim_about.html";};
